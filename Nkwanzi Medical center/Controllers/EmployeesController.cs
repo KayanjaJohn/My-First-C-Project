@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nkwanzi_Medical_center.Data;
+using Nkwanzi_Medical_center.Models;
+using Nkwanzi_Medical_center.Models.Domain;
 
 namespace Nkwanzi_Medical_center.Controllers
 {
@@ -18,9 +20,9 @@ namespace Nkwanzi_Medical_center.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Add(Models.AddEmployeeViewModel addEmployeeResult)
+        public async Task<IActionResult> Add(AddEmployeeViewModel addEmployeeResult)
         {
-            var employee = new Models.Domain.Employee()
+            var employee = new Employee
             {
                 Id = Guid.NewGuid(),
                 Name = addEmployeeResult.Name,
